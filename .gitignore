@@ -21,3 +21,8 @@
 *.i*86
 *.x86_64
 *.hex
+
+firmware/test-coupling/build/lst
+firmware/test-coupling/build/obj
+firmware/test-coupling/.dep
+
