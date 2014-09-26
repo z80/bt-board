@@ -95,7 +95,7 @@
 /*
  * GPT driver system settings.
  */
-#define STM32_GPT_USE_TIM1                  TRUE
+#define STM32_GPT_USE_TIM1                  FALSE
 #define STM32_GPT_USE_TIM2                  FALSE
 #define STM32_GPT_USE_TIM3                  FALSE
 #define STM32_GPT_USE_TIM4                  FALSE
@@ -145,7 +145,7 @@
  */
 #define STM32_PWM_USE_ADVANCED              FALSE
 #define STM32_PWM_USE_TIM1                  FALSE
-#define STM32_PWM_USE_TIM2                  TRUE
+#define STM32_PWM_USE_TIM2                  FALSE
 #define STM32_PWM_USE_TIM3                  FALSE
 #define STM32_PWM_USE_TIM4                  FALSE
 #define STM32_PWM_USE_TIM5                  FALSE
@@ -165,8 +165,8 @@
 /*
  * SERIAL driver system settings.
  */
-#define STM32_SERIAL_USE_USART1             TRUE
-#define STM32_SERIAL_USE_USART2             FALSE
+#define STM32_SERIAL_USE_USART1             FALSE
+#define STM32_SERIAL_USE_USART2             TRUE
 #define STM32_SERIAL_USE_USART3             FALSE
 #define STM32_SERIAL_USE_UART4              FALSE
 #define STM32_SERIAL_USE_UART5              FALSE
@@ -209,7 +209,7 @@
 /*
  * USB driver system settings.
  */
-#define STM32_USB_USE_USB1                  TRUE
+#define STM32_USB_USE_USB1                  FALSE
 #define STM32_USB_LOW_POWER_ON_SUSPEND      TRUE
 #define STM32_USB_USB1_HP_IRQ_PRIORITY      6
 #define STM32_USB_USB1_LP_IRQ_PRIORITY      14
