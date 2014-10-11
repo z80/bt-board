@@ -22,6 +22,8 @@
 *.x86_64
 *.hex
 
+_temp
+
 firmware/test-coupling/build/lst
 firmware/test-coupling/build/obj
 firmware/test-coupling/.dep
