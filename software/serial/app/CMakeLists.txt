@@ -20,6 +20,13 @@ qt4_wrap_ui( ui_src ${ui} )
 set( src ${src} ${ui_src} )
 
 add_executable( app ${src} )
+if( WIN32 )
+    set( defs _TTY_WIN_ )
+else( WIN32 )
+    set( defs _TTY_POSIX_ )
+endif( WIN32 )
+set_property( TARGET app PROPERTY COMPILE_DEFINITIONS ${defs} )
+
 target_link_libraries( app ${QT_LIBRARIES} serial )
 
 

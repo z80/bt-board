@@ -5,7 +5,7 @@ Serial::Serial( QWidget * parent )
   : QWidget( parent )
 {
     ui.setupUi( this );
-    serial = new QextSerialPort( this );
+    serial = new QextSerialPort();
     connect( ui.openBtn, SIGNAL(clicked()), this, SLOT(open()) );
     connect( ui.rtsBtn,  SIGNAL(clicked()), this, SLOT(rts()) );
     connect( ui.dtrBtn,  SIGNAL(clicked()), this, SLOT(dtr()) );
