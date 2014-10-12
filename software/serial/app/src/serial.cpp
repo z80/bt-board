@@ -25,27 +25,37 @@ void Serial::open()
 {
     if ( ui.openBtn->isChecked() )
     {
+        //serial->setPortName( "/dev/ttyUSB0" );
+        serial->setPortName( "COM1" );
         serial->setBaudRate( BAUD9600 );
         serial->setDataBits( DATA_8 );
         serial->setStopBits( STOP_1 );
         serial->setFlowControl( FLOW_OFF );
         serial->setParity( PAR_NONE );
-        serial->open();
+        bool res = serial->open();
+        ui.logTe->appendPlainText( QString( "open result: %1" ).arg( res ? "true" : "false" ) );
+        timer->start();
     }
     else
+    {
         serial->close();
+        timer->stop();
+        ui.logTe->appendPlainText( "closed" );
+    }
 }
 
 void Serial::rts()
 {
     bool res = ui.rtsBtn->isChecked();
     serial->setRts( res );
+    ui.logTe->appendPlainText( QString( "rts: %1" ).arg( res ? "true" : "false" ) );
 }
 
 void Serial::dtr()
 {
     bool res = ui.dtrBtn->isChecked();
     serial->setDtr( res );
+    ui.logTe->appendPlainText( QString( "dtr: %1" ).arg( res ? "true" : "false" ) );
 }
 
 void Serial::send()
@@ -54,6 +64,7 @@ void Serial::send()
     stri.append( "\r\n" );
     QByteArray a = stri.toAscii();
     int cnt = serial->write( a );
+    ui.logTe->appendPlainText( QString( "bytes written: %1" ).arg( cnt ) );
 }
 
 void Serial::timeout()
@@ -62,6 +73,7 @@ void Serial::timeout()
     QByteArray a;
     a = serial->readAll();
     ui.logTe->appendPlainText( QString::fromAscii( a ) );
+    ui.logTe->appendPlainText( "QString::fromAscii( a )" );
 }
 
 
