@@ -21,7 +21,6 @@ add_library( serial STATIC ${com_src} )
 target_link_libraries( serial ${QT_LIBRARIES} )
 # Символы для импорта динамических библиотек.
 set_property( TARGET serial PROPERTY DEFINE_SYMBOL ${defs} )
-
-#set_property( TARGET serial PROPERTY COMPILE_DEFINITIONS ${defs} )
+set_property( TARGET serial PROPERTY COMPILE_DEFINITIONS ${defs} )
 
 message( STATUS "configuring serial" )
