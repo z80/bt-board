@@ -1,0 +1,80 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = Sun 19 Oct 2014 07:49:57 AM MSK
+
+BeginCmp
+TimeStamp = /54433234;
+Reference = J1;
+ValeurCmp = DB25;
+IdModule  = DB25M_CI;
+EndCmp
+
+BeginCmp
+TimeStamp = /544334B8;
+Reference = P1;
+ValeurCmp = mosi;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /544334E7;
+Reference = P2;
+ValeurCmp = miso;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /544334F5;
+Reference = P3;
+ValeurCmp = cs;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /54433503;
+Reference = P4;
+ValeurCmp = gnd;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /54433256;
+Reference = R1;
+ValeurCmp = 1k6;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /54433244;
+Reference = R2;
+ValeurCmp = 3k;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /544332A0;
+Reference = R3;
+ValeurCmp = 1k6;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /5443329A;
+Reference = R4;
+ValeurCmp = 3k;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /544332B8;
+Reference = R5;
+ValeurCmp = 1k6;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /544332B2;
+Reference = R6;
+ValeurCmp = 3k;
+IdModule  = SM0805;
+EndCmp
+
+EndListe
