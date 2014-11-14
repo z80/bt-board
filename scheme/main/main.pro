@@ -1,4 +1,4 @@
-update=Thu 13 Nov 2014 08:26:09 AM MSK
+update=Fri 14 Nov 2014 08:52:40 AM MSK
 version=1
 last_client=eeschema
 [cvpcb]
@@ -89,3 +89,6 @@ LibName32=micro-usb-b
 LibName33=ncp3063
 LibName34=stm32f103cbt6
 LibName35=usb_a
+LibName36=leaf
+LibName37=crystal
+LibName38=crystal-4pin
