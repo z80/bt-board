@@ -44,7 +44,7 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "14 nov 2014"
+Date "15 nov 2014"
 Rev "0.1"
 Comp ""
 Comment1 ""
@@ -576,40 +576,6 @@ F 1 "100k" V 19050 2800 50  0000 C CNN
 F 2 "" H 19050 2800 60  0001 C CNN
 F 3 "" H 19050 2800 60  0001 C CNN
 	1    19050 2800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	16150 1500 17200 1500
-Wire Wire Line
-	16150 1600 17200 1600
-Wire Wire Line
-	17200 1700 17150 1700
-Wire Wire Line
-	17150 1700 17150 1950
-Text Label 16150 1600 0    60   ~ 0
-swd-clk
-Text Label 16150 1500 0    60   ~ 0
-swd-io
-$Comp
-L GND #PWR012
-U 1 1 54645233
-P 17150 1950
-F 0 "#PWR012" H 17150 1950 30  0001 C CNN
-F 1 "GND" H 17150 1880 30  0001 C CNN
-F 2 "" H 17150 1950 60  0001 C CNN
-F 3 "" H 17150 1950 60  0001 C CNN
-	1    17150 1950
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_3 K2
-U 1 1 54645239
-P 17550 1600
-F 0 "K2" V 17500 1600 50  0000 C CNN
-F 1 "swd" V 17600 1600 40  0000 C CNN
-F 2 "" H 17550 1600 60  0001 C CNN
-F 3 "" H 17550 1600 60  0001 C CNN
-	1    17550 1600
 	1    0    0    -1  
 $EndComp
 $Comp
