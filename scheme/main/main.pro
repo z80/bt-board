@@ -1,8 +1,6 @@
-update=Sun 16 Nov 2014 10:20:32 AM MSK
+update=Wed 19 Nov 2014 09:40:47 AM MSK
 version=1
-last_client=cvpcb
-[general]
-version=1
+last_client=kicad
 [eeschema]
 version=1
 LibDir=../libs
@@ -91,9 +89,12 @@ LibName18=lqfp48
 LibName19=crystal-smd-5x3
 LibName20=do-214
 LibName21=micro-usb-b
+LibName22=sod323w
 LibDir=../libs
 [cvpcb]
 version=1
 NetIExt=net
 [cvpcb/libraries]
 EquName1=devcms
+[general]
+version=1

@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = Sun 16 Nov 2014 10:20:44 AM MSK
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = Wed 19 Nov 2014 09:39:35 AM MSK
 
 BeginCmp
 TimeStamp = /5464454E;
@@ -81,14 +81,14 @@ BeginCmp
 TimeStamp = /54645F45;
 Reference = D2;
 ValeurCmp = DIODE;
-IdModule  = DO-214AB;
+IdModule  = SOD323-W;
 EndCmp
 
 BeginCmp
 TimeStamp = /546458A1;
 Reference = D3;
 ValeurCmp = DIODE;
-IdModule  = DO-214AB;
+IdModule  = SOD323-W;
 EndCmp
 
 BeginCmp
@@ -274,7 +274,7 @@ IdModule  = SOT23;
 EndCmp
 
 BeginCmp
-TimeStamp = /546452F2;
+TimeStamp = /54685272;
 Reference = U3;
 ValeurCmp = MICRO-USB-B;
 IdModule  = micro-usb-b;
