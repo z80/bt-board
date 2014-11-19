@@ -44,7 +44,7 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "17 nov 2014"
+Date "19 nov 2014"
 Rev "0.1"
 Comp ""
 Comment1 ""
@@ -2160,7 +2160,7 @@ F 1 "MICRO-USB-B" H 20850 1750 60  0000 C CNN
 F 2 "~" H 20850 1900 60  0000 C CNN
 F 3 "~" H 20850 1900 60  0000 C CNN
 	1    20850 1900
-	0    -1   -1   0   
+	0    -1   1    0   
 $EndComp
 Wire Wire Line
 	20750 2700 20750 2800
