@@ -1,0 +1,27 @@
+EESchema-LIBRARY Version 2.3  Date: Fri 14 Nov 2014 08:52:24 AM MSK
+#encoding utf-8
+#
+# crystal-4pin
+#
+DEF crystal-4pin U 0 40 Y Y 1 F N
+F0 "U" 0 -300 60 H V C CNN
+F1 "crystal-4pin" 0 350 60 H V C CNN
+F2 "~" -50 0 60 H V C CNN
+F3 "~" -50 0 60 H V C CNN
+DRAW
+S -400 250 400 -250 0 1 0 N
+S -25 150 25 -150 0 1 0 N
+P 2 0 1 0  -125 0  -275 -150 N
+P 2 0 1 0  -50 0  -125 0 N
+P 2 0 1 0  -50 125  -50 -125 N
+P 2 0 1 0  50 0  125 0 N
+P 2 0 1 0  50 125  50 -125 N
+P 2 0 1 0  125 0  275 150 N
+X xtal 1 -700 -200 300 R 50 50 1 1 P
+X ~ 2 700 -200 300 L 50 50 1 1 P X
+X xtal2 3 700 200 300 L 50 50 1 1 P
+X ~ 4 -700 200 300 R 50 50 1 1 P X
+ENDDRAW
+ENDDEF
+#
+#End Library

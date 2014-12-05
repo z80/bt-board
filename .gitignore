@@ -5,7 +5,7 @@
 *.elf
 
 # Libraries
-*.lib
+*.lib_bbbb
 *.a
 
 # Shared objects (inc. Windows DLLs)
