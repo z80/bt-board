@@ -1,4 +1,5 @@
-EESchema Schematic File Version 2  date Sat 13 Apr 2013 11:18:08 PM MSK
+EESchema Schematic File Version 2
+LIBS:usb-to-serial-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -29,12 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:ft232bl
-LIBS:my_comps
-LIBS:lp5951mf-3
-LIBS:usb
-LIBS:usb-to-serial-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -791,7 +786,7 @@ F 3 "" H 15050 3500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CRYSTAL X1
+L Crystal X1
 U 1 1 51687701
 P 5600 7100
 F 0 "X1" H 5600 7250 60  0000 C CNN
