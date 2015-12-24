@@ -2,9 +2,13 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <time.h>
-#include <sys/time.h>
+//#include <sys/time.h>
 #include "logging.h"
 #include "compat.h"
+
+#ifdef WIN32
+    #include <windows.h>
+#endif
 
 static char *log_level_strings[] = {
     "all",
@@ -20,7 +24,7 @@ static FILE *log_dest = NULL;
 static int log_initialized = 0;
 static int log_close_file = 0;
 
-static inline void log_initialize(void)
+static void log_initialize(void)
 {
     if (!log_initialized) {
         log_dest = stderr;
@@ -212,6 +216,10 @@ static uint32_t crc32_tab[] = {
     0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
 };
 
+#ifdef WIN32
+    typedef unsigned long ssize_t;
+#endif
+
 /* CRC32, compatible with XAP flash reads/writes verification checksum */
 static uint32_t
 xap_crc32(const void *buf, ssize_t size)
@@ -219,7 +227,7 @@ xap_crc32(const void *buf, ssize_t size)
     const uint8_t *p;
     uint32_t crc = 0xffffffff;
 
-    p = buf;
+    p = (const uint8_t *)buf;
 
     while (size > 0) {
         if (size > 1)
@@ -236,11 +244,42 @@ xap_crc32(const void *buf, ssize_t size)
     return crc;
 }
 
+#ifdef WIN32
+  #ifndef TIMEVAL
+    #define TIMEVAL
+    /*
+    typedef struct timeval {
+      long tv_sec;
+      long tv_usec;
+    } timeval;*/
+
+    int gettimeofday(struct timeval * tp, struct timezone * tzp)
+    {
+        // Note: some broken versions only have 8 trailing zero's, the correct epoch has 9 trailing zero's
+        static const uint64_t EPOCH = ((uint64_t) 116444736000000000ULL);
+
+        SYSTEMTIME  system_time;
+        FILETIME    file_time;
+        uint64_t    time;
+
+        GetSystemTime( &system_time );
+        SystemTimeToFileTime( &system_time, &file_time );
+        time =  ((uint64_t)file_time.dwLowDateTime )      ;
+        time += ((uint64_t)file_time.dwHighDateTime) << 32;
+
+        tp->tv_sec  = (long) ((time - EPOCH) / 10000000L);
+        tp->tv_usec = (long) (system_time.wMilliseconds * 1000);
+        return 0;
+    }
+  #endif
+#endif
+
 void _log_msg(const char *func, const char *file, int line,
         uint32_t level, const char *fmt, ...)
 {
     struct timeval tv;
     static char strbuf[1024], timebuf[20], *optp;
+    time_t tm;
     va_list args;
 
     level &= LOG_LEVEL_MASK;
@@ -254,7 +293,9 @@ void _log_msg(const char *func, const char *file, int line,
     if (log_dest != NULL && level <= log_level)
     {
         gettimeofday(&tv, NULL);
-        strftime(timebuf, sizeof(timebuf), "%H:%M:%S", localtime(&tv.tv_sec));
+        tm = tv.tv_sec;
+        strftime(timebuf, sizeof(timebuf), "%H:%M:%S", localtime(&tm));
+        tv.tv_sec = tm;
 
         optp = log_level_strings[level];
 
@@ -278,6 +319,7 @@ void _log_hexdump(const char *func, const char *file, int line,
 {
     struct timeval tv;
     static char strbuf[1024], timebuf[20];
+    time_t  tm;
     va_list args;
 
     if (!(log_flags & LOG_FLAGS_DUMP) || data == NULL)
@@ -288,7 +330,9 @@ void _log_hexdump(const char *func, const char *file, int line,
         return;
 
     gettimeofday(&tv, NULL);
-    strftime(timebuf, sizeof(timebuf), "%H:%M:%S", localtime(&tv.tv_sec));
+    tm = tv.tv_sec;
+    strftime(timebuf, sizeof(timebuf), "%H:%M:%S", localtime(&tm));
+    tv.tv_sec = tm;
 
     if (fmt == NULL || fmt[0] == '\0') {
         fprintf(log_dest, "%s.%06ld: dump:%s:%d:%s (size=%d, crc32=0x%08x):\n", timebuf, tv.tv_usec,

@@ -22,6 +22,10 @@ enum {
 #define LOG_LEVEL_MASK  0xff
 #define LOG_MAX_LEVEL   LOG_LEVEL_DEBUG
 
+#ifndef __func__
+    #define __func__ __FUNCTION__
+#endif
+
 #define LOG(lvl, ...)           _log_msg(__func__, __FILE__, __LINE__, LOG_LEVEL_ ## lvl, __VA_ARGS__)
 #define DUMP(data, len, ...)    _log_hexdump(__func__, __FILE__, __LINE__, data, len, __VA_ARGS__)
 
