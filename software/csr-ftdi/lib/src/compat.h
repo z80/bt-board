@@ -1,6 +1,8 @@
 #ifndef _COMPAT_H
 #define _COMPAT_H
 
+#include "stdint.h"
+
 #ifdef __WINE__
 # define stricmp strcasecmp
 #endif
@@ -48,5 +50,38 @@
   } while (0)
 #endif
 #endif /* COMPAT_TIMER_MACROS */
+
+
+//#ifdef WIN32
+  #ifndef TIMEVAL
+    #define TIMEVAL
+    /*
+    typedef struct timeval {
+      long tv_sec;
+      long tv_usec;
+    } timeval;*/
+
+    typedef unsigned long ssize_t;
+
+
+    int gettimeofday(struct timeval * tp, struct timezone * tzp);
+  #endif
+
+ /// #if defined(_MSC_VER) && _MSC_VER < 1900
+
+    #define snprintf c99_snprintf
+    #define vsnprintf c99_vsnprintf
+
+    #ifdef __cplusplus
+        extern "C"
+        {
+    #endif
+            int c99_vsnprintf(char *outBuf, size_t size, const char *format, va_list ap);
+            int c99_snprintf(char *outBuf, size_t size, const char *format, ...);
+    #ifdef __cplusplus
+        }
+    #endif
+
+  //#endif
 
 #endif /* _COMPAT_H */

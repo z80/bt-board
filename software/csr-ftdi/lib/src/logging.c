@@ -216,10 +216,6 @@ static uint32_t crc32_tab[] = {
     0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
 };
 
-#ifdef WIN32
-    typedef unsigned long ssize_t;
-#endif
-
 /* CRC32, compatible with XAP flash reads/writes verification checksum */
 static uint32_t
 xap_crc32(const void *buf, ssize_t size)
@@ -243,36 +239,6 @@ xap_crc32(const void *buf, ssize_t size)
 
     return crc;
 }
-
-#ifdef WIN32
-  #ifndef TIMEVAL
-    #define TIMEVAL
-    /*
-    typedef struct timeval {
-      long tv_sec;
-      long tv_usec;
-    } timeval;*/
-
-    int gettimeofday(struct timeval * tp, struct timezone * tzp)
-    {
-        // Note: some broken versions only have 8 trailing zero's, the correct epoch has 9 trailing zero's
-        static const uint64_t EPOCH = ((uint64_t) 116444736000000000ULL);
-
-        SYSTEMTIME  system_time;
-        FILETIME    file_time;
-        uint64_t    time;
-
-        GetSystemTime( &system_time );
-        SystemTimeToFileTime( &system_time, &file_time );
-        time =  ((uint64_t)file_time.dwLowDateTime )      ;
-        time += ((uint64_t)file_time.dwHighDateTime) << 32;
-
-        tp->tv_sec  = (long) ((time - EPOCH) / 10000000L);
-        tp->tv_usec = (long) (system_time.wMilliseconds * 1000);
-        return 0;
-    }
-  #endif
-#endif
 
 void _log_msg(const char *func, const char *file, int line,
         uint32_t level, const char *fmt, ...)

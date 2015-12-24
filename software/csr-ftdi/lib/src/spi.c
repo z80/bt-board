@@ -8,7 +8,10 @@
 #ifdef SPI_STATS
 #include <math.h>
 #endif
-#include <sys/time.h>
+
+#ifdef UNIX
+   #include <sys/time.h>
+#endif
 
 #include "spi.h"
 #include "compat.h"
