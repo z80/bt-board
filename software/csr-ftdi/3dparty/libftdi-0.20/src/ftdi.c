@@ -28,7 +28,8 @@
 /** \addtogroup libftdi */
 /* @{ */
 
-#include <usb.h>
+//#include <usb.h>
+#include "lusb0_usb.h"
 #include <string.h>
 #include <errno.h>
 #include <stdio.h>

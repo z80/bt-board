@@ -73,7 +73,7 @@ if(${WIN32})
   set(CPACK_NSIS_MODIFY_PATH             "ON")
 endif(${WIN32})
 
-set(CPACK_RESOURCE_FILE_LICENSE        ${CMAKE_SOURCE_DIR}/LICENSE)
+set(CPACK_RESOURCE_FILE_LICENSE        ${CMAKE_CURRENT_SOURCE_DIR}/LICENSE)
 
 set(CPACK_SOURCE_GENERATOR             TGZ)
 set(CPACK_SOURCE_IGNORE_FILES          "\\\\.git")
@@ -102,33 +102,33 @@ if(DOCUMENTATION AND DOXYGEN_FOUND)
    # Set variables
    set(PACKAGE libftdi)
    set(VERSION ${VERSION_STRING})
-   set(top_srcdir ${CMAKE_SOURCE_DIR})
+   set(top_srcdir ${CMAKE_CURRENT_SOURCE_DIR})
 
    # Find doxy config
    message(STATUS "Doxygen found.")
-   set(DOXY_DIR "${CMAKE_SOURCE_DIR}/doc")
+   set(DOXY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/doc")
    set(DOXY_CONFIG "${DOXY_DIR}/Doxyfile.in")
 
    # Copy doxy.config.in
-   configure_file("${DOXY_CONFIG}" "${CMAKE_BINARY_DIR}/doxy.config")
+   configure_file("${DOXY_CONFIG}" "${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
 
    # Create doc directory
    add_custom_command(
-   OUTPUT ${CMAKE_BINARY_DIR}/doc
-   COMMAND rm -rf ${CMAKE_BINARY_DIR}/doc/{html,man}
-   COMMAND mkdir -p ${CMAKE_BINARY_DIR}/doc
+   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/doc
+   COMMAND rm -rf ${CMAKE_CURRENT_BINARY_DIR}/doc/{html,man}
+   COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/doc
    DEPENDS ftdi ftdipp
    )
 
    # Run doxygen
    add_custom_command(
-   OUTPUT ${CMAKE_BINARY_DIR}/doc/html/index.html
-   COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_BINARY_DIR}/doxy.config"
-   DEPENDS "${CMAKE_BINARY_DIR}/doxy.config" "${CMAKE_BINARY_DIR}/doc"
-   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/doc
+   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/doc/html/index.html
+   COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/doxy.config"
+   DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/doxy.config" "${CMAKE_CURRENT_BINARY_DIR}/doc"
+   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc
    )
 
-   add_custom_target(docs ALL DEPENDS ${CMAKE_BINARY_DIR}/doc/html/index.html)
+   add_custom_target(docs ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/doc/html/index.html)
 
    message(STATUS "Generating API documentation with Doxygen")
 else(DOCUMENTATION AND DOXYGEN_FOUND)
@@ -147,14 +147,14 @@ if(${WIN32})
    set(libdir      ${CMAKE_INSTALL_PREFIX}/bin)
 endif(${WIN32})
 
-configure_file(${CMAKE_SOURCE_DIR}/libftdi.pc.in ${CMAKE_BINARY_DIR}/libftdi.pc @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/libftdipp.pc.in ${CMAKE_BINARY_DIR}/libftdipp.pc @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/libftdi.pc ${CMAKE_BINARY_DIR}/libftdipp.pc
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libftdi.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libftdi.pc @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libftdipp.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libftdipp.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libftdi.pc ${CMAKE_CURRENT_BINARY_DIR}/libftdipp.pc
         DESTINATION lib${LIB_SUFFIX}/pkgconfig)
 
 if(${UNIX})
-    configure_file(${CMAKE_SOURCE_DIR}/libftdi-config.in ${CMAKE_BINARY_DIR}/libftdi-config @ONLY)
-    install(PROGRAMS ${CMAKE_BINARY_DIR}/libftdi-config DESTINATION bin)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libftdi-config.in ${CMAKE_CURRENT_BINARY_DIR}/libftdi-config @ONLY)
+    install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/libftdi-config DESTINATION bin)
 endif(${UNIX})
 
-include(CPack)
+#include(CPack)

@@ -1,7 +1,9 @@
 #ifndef SPIFNS_H
 #define SPIFNS_H
 
-#include <inttypes.h>
+#ifdef UNIX
+    #include <inttypes.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
