@@ -1,0 +1,12 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"C1,C2";"C_0805";2;"0.1uF";;;
+2;"C3,C4";"C_0805";2;"4u7";;;
+3;"D1";"LED-5MM";1;"LED_READ";;;
+4;"D2";"LED-5MM";1;"LED_WRITE";;;
+5;"D3";"LED-5MM";1;"LED_PWR";;;
+6;"P1";"USB_B";1;"USB_B";;;
+7;"R13,R14,R15";"R_0805";3;"1k";;;
+8;"U1";"SSOP-28_5.3x10.2mm_Pitch0.65mm";1;"FT232RL";;;
+9;"U2";"SOT-23_Handsoldering";1;"MCP1703T-3302E/CB";;;
+10;"P2,P3,P4,P5,P6,P7,P8,P9,P10,P11";"Measurement_Point_Round-SMD-Pad_Small";10;"TST";;;
+11;"R1,R2,R3,R5,R7,R8";"R_0805";6;"220";;;

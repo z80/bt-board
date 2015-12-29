@@ -22,17 +22,7 @@ $EndDescr
 Wire Wire Line
 	4550 5750 4450 5750
 Wire Wire Line
-	3850 6050 3950 6050
-Wire Wire Line
-	6700 4000 7750 4000
-Wire Wire Line
-	7750 3900 6700 3900
-Wire Wire Line
-	6700 3800 7750 3800
-Wire Wire Line
-	7750 3600 6700 3600
-Wire Wire Line
-	6700 3400 7750 3400
+	2950 6050 3050 6050
 Wire Wire Line
 	3850 3800 3850 4050
 Connection ~ 3850 3350
@@ -45,11 +35,9 @@ Wire Wire Line
 Wire Wire Line
 	4450 5950 4950 5950
 Wire Wire Line
-	6700 3500 7750 3500
+	2950 5750 3050 5750
 Wire Wire Line
-	3850 5750 3950 5750
-Wire Wire Line
-	3950 5950 3850 5950
+	3050 5950 2950 5950
 Wire Wire Line
 	3850 2450 3850 2750
 Wire Wire Line
@@ -63,8 +51,6 @@ Wire Wire Line
 	9850 4450 9850 4650
 Wire Wire Line
 	9850 4950 9850 5150
-Wire Wire Line
-	6700 3700 7750 3700
 Wire Wire Line
 	5650 5200 5650 5300
 Connection ~ 5650 5300
@@ -123,8 +109,6 @@ Wire Wire Line
 Wire Wire Line
 	10150 4000 9750 4000
 Wire Wire Line
-	6700 3300 7750 3300
-Wire Wire Line
 	4550 5850 4450 5850
 Wire Wire Line
 	6350 5950 6350 6150
@@ -139,7 +123,7 @@ Wire Wire Line
 Wire Wire Line
 	4250 3950 3850 3950
 Wire Wire Line
-	3850 5850 3950 5850
+	2950 5850 3050 5850
 Wire Wire Line
 	4450 6050 4550 6050
 Text GLabel 4550 5750 2    60   Input ~ 0
@@ -232,13 +216,13 @@ Text GLabel 7750 3900 2    60   Input ~ 0
 LED_RD#
 Text GLabel 7750 3600 2    60   Input ~ 0
 LED_WR#
-Text GLabel 3850 6050 0    60   Input ~ 0
+Text GLabel 2950 6050 0    60   Input ~ 0
 CS#
-Text GLabel 3850 5950 0    60   Input ~ 0
+Text GLabel 2950 5950 0    60   Input ~ 0
 CLK
-Text GLabel 3850 5750 0    60   Input ~ 0
+Text GLabel 2950 5750 0    60   Input ~ 0
 MISO
-Text GLabel 3850 5850 0    60   Input ~ 0
+Text GLabel 2950 5850 0    60   Input ~ 0
 MOSI
 Text GLabel 7750 3700 2    60   Input ~ 0
 CS#
@@ -495,35 +479,223 @@ F 3 "" H 9300 2050 60  0001 C CNN
 	1    9300 2050
 	1    0    0    -1  
 $EndComp
-NoConn ~ 6700 4100
-NoConn ~ 6700 4200
-NoConn ~ 6700 4300
-NoConn ~ 6700 4400
-NoConn ~ 6700 4500
+Wire Wire Line
+	3050 6150 2750 6150
+Wire Wire Line
+	2750 6150 2750 6250
 $Comp
-L CONN_02X05 P?
-U 1 1 5680EF60
-P 4200 5950
-F 0 "P?" H 4200 6366 50  0000 C CNN
-F 1 "CONN_02X05" H 4200 6274 50  0000 C CNN
-F 2 "" H 4200 4750 50  0000 C CNN
-F 3 "" H 4200 4750 50  0000 C CNN
-	1    4200 5950
+L GND #PWR013
+U 1 1 5680F01C
+P 2750 6250
+F 0 "#PWR013" H 2750 6250 30  0001 C CNN
+F 1 "GND" H 2750 6180 30  0001 C CNN
+F 2 "" H 2750 6250 60  0001 C CNN
+F 3 "" H 2750 6250 60  0001 C CNN
+	1    2750 6250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3950 6150 3650 6150
-Wire Wire Line
-	3650 6150 3650 6250
 $Comp
-L GND #PWR?
-U 1 1 5680F01C
-P 3650 6250
-F 0 "#PWR?" H 3650 6250 30  0001 C CNN
-F 1 "GND" H 3650 6180 30  0001 C CNN
-F 2 "" H 3650 6250 60  0001 C CNN
-F 3 "" H 3650 6250 60  0001 C CNN
-	1    3650 6250
-	1    0    0    -1  
+L R R1
+U 1 1 568224D0
+P 6950 3300
+F 0 "R1" V 7030 3300 50  0000 C CNN
+F 1 "220" V 6950 3300 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 6950 3300 60  0001 C CNN
+F 3 "" H 6950 3300 60  0001 C CNN
+	1    6950 3300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6800 3300 6700 3300
+Wire Wire Line
+	7100 3300 7750 3300
+$Comp
+L R R5
+U 1 1 56822705
+P 7350 3400
+F 0 "R5" V 7430 3400 50  0000 C CNN
+F 1 "220" V 7350 3400 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 7350 3400 60  0001 C CNN
+F 3 "" H 7350 3400 60  0001 C CNN
+	1    7350 3400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7200 3400 6700 3400
+Wire Wire Line
+	7500 3400 7750 3400
+$Comp
+L R R2
+U 1 1 5682281E
+P 6950 3500
+F 0 "R2" V 7030 3500 50  0000 C CNN
+F 1 "220" V 6950 3500 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 6950 3500 60  0001 C CNN
+F 3 "" H 6950 3500 60  0001 C CNN
+	1    6950 3500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6800 3500 6700 3500
+Wire Wire Line
+	7100 3500 7750 3500
+Wire Wire Line
+	6700 3600 7750 3600
+$Comp
+L R R3
+U 1 1 56822A50
+P 6950 3700
+F 0 "R3" V 7030 3700 50  0000 C CNN
+F 1 "220" V 6950 3700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 6950 3700 60  0001 C CNN
+F 3 "" H 6950 3700 60  0001 C CNN
+	1    6950 3700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6800 3700 6700 3700
+Wire Wire Line
+	7100 3700 7750 3700
+$Comp
+L R R7
+U 1 1 56822B88
+P 7350 3800
+F 0 "R7" V 7430 3800 50  0000 C CNN
+F 1 "220" V 7350 3800 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 7350 3800 60  0001 C CNN
+F 3 "" H 7350 3800 60  0001 C CNN
+	1    7350 3800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7500 3800 7750 3800
+Wire Wire Line
+	7200 3800 6700 3800
+Wire Wire Line
+	6700 3900 7750 3900
+$Comp
+L R R8
+U 1 1 56822E38
+P 7350 4000
+F 0 "R8" V 7430 4000 50  0000 C CNN
+F 1 "220" V 7350 4000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" H 7350 4000 60  0001 C CNN
+F 3 "" H 7350 4000 60  0001 C CNN
+	1    7350 4000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7500 4000 7750 4000
+Wire Wire Line
+	7200 4000 6700 4000
+$Comp
+L TST P2
+U 1 1 568230B2
+P 3050 5750
+F 0 "P2" V 3004 5977 50  0000 L CNN
+F 1 "TST" V 3096 5977 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3050 5750 50  0001 C CNN
+F 3 "" H 3050 5750 50  0000 C CNN
+	1    3050 5750
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P3
+U 1 1 56823261
+P 3050 5850
+F 0 "P3" V 3004 6077 50  0000 L CNN
+F 1 "TST" V 3096 6077 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3050 5850 50  0001 C CNN
+F 3 "" H 3050 5850 50  0000 C CNN
+	1    3050 5850
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P4
+U 1 1 568232BA
+P 3050 5950
+F 0 "P4" V 3004 6177 50  0000 L CNN
+F 1 "TST" V 3096 6177 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3050 5950 50  0001 C CNN
+F 3 "" H 3050 5950 50  0000 C CNN
+	1    3050 5950
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P5
+U 1 1 56823312
+P 3050 6050
+F 0 "P5" V 3004 6277 50  0000 L CNN
+F 1 "TST" V 3096 6277 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3050 6050 50  0001 C CNN
+F 3 "" H 3050 6050 50  0000 C CNN
+	1    3050 6050
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P6
+U 1 1 5682336D
+P 3050 6150
+F 0 "P6" V 3004 6377 50  0000 L CNN
+F 1 "TST" V 3096 6377 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3050 6150 50  0001 C CNN
+F 3 "" H 3050 6150 50  0000 C CNN
+	1    3050 6150
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P7
+U 1 1 568233CB
+P 4450 5750
+F 0 "P7" V 4666 5844 50  0000 C CNN
+F 1 "TST" V 4574 5844 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 4450 5750 50  0001 C CNN
+F 3 "" H 4450 5750 50  0000 C CNN
+	1    4450 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L TST P8
+U 1 1 568234B2
+P 4450 5850
+F 0 "P8" V 4666 5944 50  0000 C CNN
+F 1 "TST" V 4574 5944 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 4450 5850 50  0001 C CNN
+F 3 "" H 4450 5850 50  0000 C CNN
+	1    4450 5850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L TST P9
+U 1 1 56823516
+P 4450 5950
+F 0 "P9" V 4666 6044 50  0000 C CNN
+F 1 "TST" V 4574 6044 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 4450 5950 50  0001 C CNN
+F 3 "" H 4450 5950 50  0000 C CNN
+	1    4450 5950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L TST P10
+U 1 1 5682357D
+P 4450 6050
+F 0 "P10" V 4666 6144 50  0000 C CNN
+F 1 "TST" V 4574 6144 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 4450 6050 50  0001 C CNN
+F 3 "" H 4450 6050 50  0000 C CNN
+	1    4450 6050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L TST P11
+U 1 1 568235E7
+P 4450 6150
+F 0 "P11" V 4666 6244 50  0000 C CNN
+F 1 "TST" V 4574 6244 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 4450 6150 50  0001 C CNN
+F 3 "" H 4450 6150 50  0000 C CNN
+	1    4450 6150
+	0    -1   -1   0   
 $EndComp
 $EndSCHEMATC
